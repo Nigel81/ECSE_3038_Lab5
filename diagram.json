@@ -1,24 +1,29 @@
 {
-    "version": 1,
-    "author": "Anonymous maker",
-    "editor": "wokwi",
-    "parts": [
-      { "type": "board-esp32-devkit-c-v4", "id": "esp", "top": -76.8, "left": 43.24, "attrs": {} },
-      {
-        "type": "wokwi-lcd1602",
-        "id": "lcd1",
-        "top": -70.4,
-        "left": 188,
-        "attrs": { "pins": "i2c" }
-      }
-    ],
-    "connections": [
-      [ "esp:TX", "$serialMonitor:RX", "", [] ],
-      [ "esp:RX", "$serialMonitor:TX", "", [] ],
-      [ "lcd1:SDA", "esp:21", "green", [ "v-4.49", "h-28.8", "v23.89" ] ],
-      [ "lcd1:GND", "esp:GND.2", "black", [ "h-16.67", "v162.78" ] ],
-      [ "lcd1:VCC", "esp:3V3", "red", [ "h-9.6", "v-57.5", "h-134.55" ] ],
-      [ "lcd1:SCL", "esp:22", "purple", [ "h-19.2", "v-18.9" ] ]
-    ],
-    "dependencies": {}
-  }
+  "version": 1,
+  "author": "Avanique Weir",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "board-esp32-devkit-c-v4", "id": "esp", "top": -19.2, "left": -81.56, "attrs": {} },
+    { "type": "wokwi-lcd1602", "id": "lcd1", "top": 22.63, "left": 64, "attrs": {} },
+    { "type": "wokwi-potentiometer", "id": "pot1", "top": -106.9, "left": 76.6, "attrs": {} }
+  ],
+  "connections": [
+    [ "esp:TX", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX", "$serialMonitor:TX", "", [] ],
+    [ "esp:5V", "lcd1:VDD", "red", [ "h-9.45", "v19.2", "h115.2" ] ],
+    [ "esp:GND.1", "lcd1:VSS", "black", [ "h-19.05", "v76.8", "h192" ] ],
+    [ "pot1:GND", "lcd1:VSS", "black", [ "v182.4", "h-9.6" ] ],
+    [ "pot1:VCC", "lcd1:VDD", "red", [ "v172.8", "h-10.4" ] ],
+    [ "pot1:SIG", "lcd1:V0", "green", [ "v0" ] ],
+    [ "lcd1:RW", "esp:GND.3", "green", [ "v19.2", "h-86.5", "v-105.6" ] ],
+    [ "lcd1:K", "esp:GND.1", "green", [ "v67.2", "h-345.6", "v-86.4" ] ],
+    [ "lcd1:D4", "esp:18", "green", [ "v0" ] ],
+    [ "lcd1:A", "esp:5V", "green", [ "v76.8", "h-355.3", "v-48" ] ],
+    [ "lcd1:RS", "esp:4", "green", [ "v9.6", "h-66.9", "v-38.4" ] ],
+    [ "lcd1:E", "esp:5", "green", [ "v28.8", "h-105.6", "v-86.4" ] ],
+    [ "lcd1:D5", "esp:19", "green", [ "v-76.8", "h-9.5" ] ],
+    [ "lcd1:D6", "esp:21", "green", [ "v0" ] ],
+    [ "lcd1:D7", "esp:22", "green", [ "v0" ] ]
+  ],
+  "dependencies": {}
+}
